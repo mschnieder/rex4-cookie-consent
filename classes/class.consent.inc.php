@@ -19,7 +19,11 @@ class consent {
 
 
 	public function __construct() {
-		$settings = rex_path::addonData('cookieconsent', 'settings.inc.php');
+		if(class_exists('rex_path')) {
+			$settings = rex_path::addonData('cookieconsent', 'settings.inc.php');
+		} else {
+			$settings = str_replace('addons/cookieconsent/classes/class.consent.inc.php', 'data/addons/cookieconsent/settings.inc.php', __FILE__);
+		}
 		if (file_exists($settings)) {
 			include $settings;
 		} else {
