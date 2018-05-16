@@ -24,7 +24,11 @@ $btn['bg']         = rex_post('btn_bg', 'string', $consent->btn_bg);
 $message = '';
 
 if (rex_post('btn_save', 'string') != '') {
-    $file = rex_path::addonData('cookieconsent', 'settings.inc.php');
+	if(class_exists('rex_path')) {
+		$file = rex_path::addonData('cookieconsent', 'settings.inc.php');
+	} else {
+		$file = str_replace('addons/cookieconsent/pages/settings.inc.php', 'data/addons/cookieconsent/settings.inc.php', __FILE__);
+	}
 
     $message  = 'Daten wurden nicht gespeichert';
 
@@ -40,7 +44,18 @@ $this->btn_fontcolor  = ' . var_export($btn['fontcolor'], true) . ';
 $this->btn_bg         = ' . var_export($btn['bg'], true) . ';
 ';
 
-    if (rex_file::put($file, $content) !== false) {
+    if(class_exists('rex_file')) {
+		$erg = rex_file::put($file, $content);
+    } else {
+        $pfad = str_replace('/settings.inc.php', '', $file);
+		if (!is_dir($pfad)) {
+			mkdir($pfad, 777, true);
+		}
+		$d = fopen($file, 'w');
+        $erg = fwrite($d, $content);
+        fclose($d);
+    }
+    if($erg !== false) {
         $message = 'Daten wurden gespeichert';
     }
 }
