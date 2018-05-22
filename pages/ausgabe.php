@@ -76,6 +76,11 @@
 							?>
                         </p>
 
+                        <p class="rex-form-col-a rex-form-select">
+                            <label for="host" style="width: 240px;">Farbe des Link</label>
+                            <input type="text" name="linkfarbe" value="<?php echo $cfg['linkfarbe'] ?>" style="width: 120px;" />
+                        </p>
+
 						<p class="rex-form-col-a rex-form-submit">
 							<input class="rex-form-submit" type="submit" name="btn_save" value="speichern" />
 						</p>

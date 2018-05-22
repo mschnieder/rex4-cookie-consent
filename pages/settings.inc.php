@@ -18,6 +18,7 @@ $cfg['position']   = rex_post('position', 'string', $consent->position);
 $cfg['moreinfo']   = rex_post('moreinfo', 'string', $consent->moreinfo);
 $cfg['link']       = rex_post('link', 'string', $consent->link);
 $cfg['target']	   = rex_post('target', 'string', $consent->target);
+$cfg['linkfarbe']  = rex_post('linkfarbe', 'string', $consent->linkfarbe);
 
 $btn['fontcolor']  = rex_post('btn_fontcolor', 'string', $consent->btn_fontcolor);
 $btn['bg']         = rex_post('btn_bg', 'string', $consent->btn_bg);
@@ -44,6 +45,7 @@ $this->link           = ' . var_export($cfg['link'], true) . ';
 $this->btn_fontcolor  = ' . var_export($btn['fontcolor'], true) . ';
 $this->btn_bg         = ' . var_export($btn['bg'], true) . ';
 $this->target		  = ' . var_export($cfg['target'], true) . ';
+$this->linkfarbe	  = ' . var_export($cfg['linkfarbe'], true) . ';
 ';
 
     if(class_exists('rex_file')) {
@@ -83,7 +85,6 @@ $target->setSelected($cfg['target']);
 foreach(array('_self' => 'gleicher Tab oder Seite (_self)', '_blank' => 'Neuer Tab oder Fenster (_blank)', '_parent' => 'Elternfenster (_parent)', '_top' => 'ganzes Fenster (_top)') as $id => $val) {
 	$target->addOption($val, $id);
 }
-
 
 if ($message != '') {
     echo rex_info($message);
