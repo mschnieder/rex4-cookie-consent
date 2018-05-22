@@ -64,7 +64,7 @@ $position = new rex_select();
 $position->setId('position');
 $position->setName('position');
 $position->setSize(1);
-$position->setSelected($mailer);
+$position->setSelected($cfg['position']);
 foreach (array('oben', 'unten') as $type) {
     $position->addOption($type, $type);
 }

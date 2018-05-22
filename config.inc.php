@@ -12,7 +12,7 @@ $mypage = 'cookieconsent';
 
 $REX['ADDON']['name'][$mypage] = 'Cookieconsent';
 $REX['ADDON']['perm'][$mypage] = 'cookieconsent[]';
-$REX['ADDON']['version'][$mypage] = '1.0.2';
+$REX['ADDON']['version'][$mypage] = '1.0.3';
 $REX['ADDON']['author'][$mypage] = 'Markus Schnieder';
 $REX['ADDON']['supportpage'][$mypage] = 'https://github.com/mschnieder';
 
