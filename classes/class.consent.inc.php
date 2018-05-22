@@ -36,6 +36,7 @@ class consent {
 			$this->position = 'unten';
 			$this->link = '';
 			$this->moreinfo = 'Mehr Informationen';
+			$this->target = '_self';
 		}
 	}
 
@@ -83,7 +84,7 @@ class consent {
 	public function getBanner() {
 		$d = '<div class="cc-window cc-banner cc-type-info cc-theme-classic '.($this->position == 'oben' ? 'cc-top' : 'cc-bottom').'" id="cookieconsent" style="background: '.$this->bg.';">
 				<div id="cookieconsent:desc" class="cc-message" style="color: '.$this->fontcolor.'">'.$this->hinweistext.'&nbsp;
-					<a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="'.rex_getUrl($this->link).'" target="_blank">'.$this->moreinfo.'</a>
+					<a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="'.rex_getUrl($this->link).'" target="'.$this->target.'">'.$this->moreinfo.'</a>
 				</div>
 				<div class="cc-compliance" style="border-radius: 5px; background: '.$this->btn_bg.'">
 					<a tabindex="0" class="cc-btn cc-dismiss" style="border: 0px; color: '.$this->fontcolor.';" href="javascript:acceptCookies();">'.$this->buttontxt.'</a>

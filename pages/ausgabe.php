@@ -62,10 +62,19 @@
 
 						<p class="rex-form-col-a rex-form-select">
 							<label for="wordwrap" style="width: 240px;">Link zum Datenschutz</label>
+                            <div style="margin-left: 95px">
                             <?php
 							echo $datenschutz->getHtml();
                             ?>
+                            </div>
 						</p>
+
+                        <p class="rex-form-col-a rex-form-select">
+                            <label for="wordwrap" style="width: 240px;">Zielfensterbasis</label>
+							<?php
+							echo $target->show();
+							?>
+                        </p>
 
 						<p class="rex-form-col-a rex-form-submit">
 							<input class="rex-form-submit" type="submit" name="btn_save" value="speichern" />
